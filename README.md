@@ -1,11 +1,11 @@
+<!-- markdownlint-disable MD033 -->
 # Haskell Dockerfile Linter
 
 [![Build Status][github-actions-img]][github-actions]
 [![GPL-3 licensed][license-img]][license]
 [![GitHub release][release-img]][release]
 ![GitHub downloads][downloads-img]
-<img align="right" alt="pipecat" width="150"
-src="https://hadolint.github.io/hadolint/img/cat_container.png" />
+<img align="right" alt="pipecat" width="150" src="https://hadolint.github.io/hadolint/img/cat_container.png" />
 
 A smarter Dockerfile linter that helps you build [best practice][] Docker
 images. The linter parses the Dockerfile into an AST and performs rules on
@@ -242,13 +242,14 @@ Available options:
 Configuration files can be used globally or per project.
 Hadolint looks for configuration files in the following locations or their
 platform specific equivalents in this order and uses the first one exclusively:
+
 - `$PWD/.hadolint.yaml`
 - `$XDG_CONFIG_HOME/hadolint.yaml`
 - `$HOME/.config/hadolint.yaml`
 - `$HOME/.hadolint/hadolint.yaml or $HOME/hadolint/config.yaml`
 - `$HOME/.hadolint.yaml`
 
-In windows, the `%LOCALAPPDATA%` environment variable is used instead of 
+In windows, the `%LOCALAPPDATA%` environment variable is used instead of
 `XDG_CONFIG_HOME`. Config files can have either `yaml` or `yml` extensions.
 
 `hadolint` full `yaml` config file schema
@@ -349,6 +350,7 @@ docker run --rm -i -v /your/path/to/hadolint.yaml:/.config/hadolint.yaml ghcr.io
 
 In addition to config files, Hadolint can be configured with environment
 variables.
+
 ```bash
 NO_COLOR=1                               # Set or unset. See https://no-color.org
 HADOLINT_NOFAIL=1                        # Truthy value e.g. 1, true or yes
@@ -495,10 +497,10 @@ write it. See our [Integration][] docs.
 An incomplete list of implemented rules. Click on the error code to get more
 detailed information.
 
--   Rules with the prefix `DL` are from `hadolint`. Have a look at
+- Rules with the prefix `DL` are from `hadolint`. Have a look at
     `Rules.hs` to find the implementation of the rules.
 
--   Rules with the `SC` prefix are from **ShellCheck** (only the most
+- Rules with the `SC` prefix are from **ShellCheck** (only the most
     common rules are listed, there are dozens more).
 
 Please [create an issue][] if you have an idea for a good rule.
@@ -617,20 +619,20 @@ To compile, you will need a recent Haskell environment and `cabal-install`.
 
 ### Setup
 
-1.  Clone repository
+1. Clone repository
 
     ```bash
     git clone --recursive git@github.com:hadolint/hadolint.git
     ```
 
-1.  Install dependencies and compile source
+1. Install dependencies and compile source
 
     ```bash
     cabal configure
     cabal build
     ```
 
-1.  (Optional) Install Hadolint on your system
+1. (Optional) Install Hadolint on your system
 
     ```bash
     cabal install
@@ -684,41 +686,42 @@ other library as well.
  1) In the same directory (e.g. `/home/user/repos`) clone Hadolint and
     language-docker git repositories
 
-```bash
-cd /home/user/repos
-git clone https://github.com/hadolint/hadolint.git
-git clone https://github.com/hadolint/language-docker.git
-```
+    ```bash
+    cd /home/user/repos
+    git clone https://github.com/hadolint/hadolint.git
+    git clone https://github.com/hadolint/language-docker.git
+    ```
 
  2) Make your modifications to language-docker
 
  3) In the Hadolint repo, edit the `cabal.project` file, such that the
     `packages` property points to the other repo too
 
-```yaml
-[...]
-packages:
-  .
-  ../language-docker
-[...]
-```
+    ```yaml
+    [...]
+    packages:
+      .
+      ../language-docker
+    [...]
+    ```
 
  4) Recompile Hadolint and run the tests
-```bash
-cd /home/user/repos/hadolint
-cabal configure --enable-tests
-cabal build --enable-tests
-cabal test
-```
+
+    ```bash
+    cd /home/user/repos/hadolint
+    cabal configure --enable-tests
+    cabal build --enable-tests
+    cabal test
+    ```
 
 ## Alternatives
 
--   replicatedhq/[dockerfilelint](https://github.com/replicatedhq/dockerfilelint),
+- replicatedhq/[dockerfilelint](https://github.com/replicatedhq/dockerfilelint),
     the other linter used by the [super-linter](https://github.com/github/super-linter/blob/main/README.md#supported-linters)
 
--   RedCoolBeans/[dockerlint](https://github.com/RedCoolBeans/dockerlint/)
+- RedCoolBeans/[dockerlint](https://github.com/RedCoolBeans/dockerlint/)
 
--   projectatomic/[dockerfile_lint](https://github.com/projectatomic/dockerfile_lint/)
+- projectatomic/[dockerfile_lint](https://github.com/projectatomic/dockerfile_lint/)
 
 <!-- References -->
 
